@@ -21,7 +21,6 @@ Across the test window Wazuh recorded **2,737 alerts**: **2 High** (level 12–1
 The two **level-12** alerts are the two PsExec runs — pass-the-hash and Golden Ticket — each dropping a random-named service executable.
 
 ![Level 12–14 alerts](../images/09-level12-alerts.png)
-![7045 service-creation events](../images/10-7045-events.png)
 
 ## 3. Detection gap: DCSync not alerted
 
