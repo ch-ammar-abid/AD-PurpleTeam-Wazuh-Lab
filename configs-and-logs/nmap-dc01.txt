@@ -1,0 +1,30 @@
+$ nmap -p- 192.168.1.10
+Nmap scan report for 192.168.1.10
+Host is up (0.0026s latency).
+Not shown: 65514 filtered tcp ports (no-response)
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain        Simple DNS Plus
+88/tcp    open  kerberos-sec  Microsoft Windows Kerberos
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp   open  ldap          Microsoft Windows Active Directory LDAP (Domain: nightwatch.local)
+445/tcp   open  microsoft-ds
+464/tcp   open  kpasswd5
+593/tcp   open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  tcpwrapped
+3268/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: nightwatch.local)
+3269/tcp  open  tcpwrapped
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+9389/tcp  open  mc-nmf        .NET Message Framing
+49664+/tcp open msrpc         Microsoft Windows RPC
+Service Info: Host: DC01; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+# SMB protocols
+$ nmap -p 445 --script smb-protocols 192.168.1.10
+| smb-protocols:
+|   dialects:
+|     2:0:2
+|     2:1:0
+|     3:0:0
+|     3:0:2
+|_    3:1:1       # SMBv1 disabled, signing enforced

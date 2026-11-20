@@ -1,0 +1,34 @@
+{
+  "agent": { "id": "001", "name": "DC01", "ip": "192.168.1.10" },
+  "manager": { "name": "Ubuntu" },
+  "rule": {
+    "id": "92650",
+    "level": 12,
+    "description": "New Windows Service Created to start from windows root path. Suspicious event as the binary may have been dropped using Windows Admin Shares.",
+    "groups": ["win_evt_channel", "windows"],
+    "mitre": {
+      "id": ["T1021.002", "T1569.002"],
+      "tactic": ["Lateral Movement", "Execution"],
+      "technique": ["SMB/Windows Admin Shares", "Service Execution"]
+    }
+  },
+  "data": {
+    "win": {
+      "system": {
+        "eventID": "7045",
+        "channel": "System",
+        "computer": "DC01.nightwatch.local",
+        "providerName": "Service Control Manager",
+        "severityValue": "INFORMATION"
+      },
+      "eventdata": {
+        "serviceName": "FsxL",
+        "imagePath": "%systemroot%\\NygnJvZz.exe",
+        "serviceType": "user mode service",
+        "startType": "demand start",
+        "accountName": "LocalSystem"
+      }
+    }
+  },
+  "location": "EventChannel"
+}
